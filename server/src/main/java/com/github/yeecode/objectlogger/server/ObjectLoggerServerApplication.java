@@ -4,6 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * @author mengdewei
+ */
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.github.yeecode.objectlogger"})
 public class ObjectLoggerServerApplication {
