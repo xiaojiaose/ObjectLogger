@@ -20,9 +20,9 @@ public class ObjectLoggerDemoApplication {
         System.out.println("ObjectLogger Demo application start successfully!");
         System.out.println("Via following url to add logs:");
         System.out.println("###############################");
-        System.out.println("http://127.0.0.1:12302/ObjectLoggerDemo/task/add");
-        System.out.println("http://127.0.0.1:12302/ObjectLoggerDemo/task/start");
-        System.out.println("http://127.0.0.1:12302/ObjectLoggerDemo/task/update");
+        System.out.println("http://127.0.0.1:12302/demo/task/add");
+        System.out.println("http://127.0.0.1:12302/demo/task/start");
+        System.out.println("http://127.0.0.1:12302/demo/task/update");
         System.out.println("###############################");
     }
 }

@@ -2,6 +2,10 @@ package com.github.yeecode.objectlogger.client.http;
 
 
 import com.github.yeecode.objectlogger.client.config.ObjectLoggerConfig;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.NameValuePair;
@@ -17,9 +21,6 @@ import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class HttpUtil {
     private static final Log LOGGER = LogFactory.getLog(HttpUtil.class);
@@ -31,7 +32,7 @@ public class HttpUtil {
         try {
             List<NameValuePair> paramsList = new ArrayList<>();
             paramsList.add(new BasicNameValuePair("logJsonString", jsonString));
-            sendPost(objectLoggerConfig.getServerAddress() + "/ObjectLoggerServer/log/add", paramsList);
+            sendPost(objectLoggerConfig.getServerAddress() + "/logger/log/add", paramsList);
         } catch (Exception ex) {
             LOGGER.error("sendLog error!", ex);
         }

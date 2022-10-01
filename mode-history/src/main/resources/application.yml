@@ -1,5 +1,8 @@
 server:
-  port: 8089
+  port: 12301
+  servlet:
+    context-path: /logger
+
 spring:
   # 数据库链接配置
   datasource:
@@ -8,6 +11,12 @@ spring:
     username: root
     password: 12345678
 
+yeecode:
+  objectLogger:
+    serverAddress: http://127.0.0.1:12301
+    businessAppName: ObjectLoggerServer
+    autoLogAttributes: true
+
 mybatis:
   check-config-location: true
   #  mybatis框架配置文件，对mybatis的生命周期起作用
@@ -15,6 +24,7 @@ mybatis:
   #  配置xml路径
   mapper-locations: "classpath:mapper/*Mapper.xml"
   #  配置model包路径
-  type-aliases-package: "com.example.history.entity.*"
+  type-aliases-package: "com.github.yeecode.objectlogger.client.model"
   configuration:
     map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

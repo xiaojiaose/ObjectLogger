@@ -1,0 +1,7 @@
+spring:
+  # 数据库链接配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/logger?useUnicode=true&characterEncoding=UTF8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345678

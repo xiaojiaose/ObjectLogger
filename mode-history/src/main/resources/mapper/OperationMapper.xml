@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.github.yeecode.objectlogger.history.dao.OperationDao">
+    <select id="queryByFilter" resultType="com.github.yeecode.objectlogger.client.model.OperationModel">
+        SELECT * FROM operation
+        <where>
+            <if test="id != null">
+                `id`=#{id,jdbcType=BIGINT}
+            </if>
+            <if test="appName != null">
+                AND `appName`=#{appName,jdbcType=VARCHAR}
+            </if>
+            <if test="objectName != null">
+                AND `objectName`=#{objectName,jdbcType=VARCHAR}
+            </if>
+            <if test="objectId != null">
+                AND `objectId`=#{objectId,jdbcType=VARCHAR}
+            </if>
+            <if test="operator != null">
+                AND `operator`=#{operator,jdbcType=VARCHAR}
+            </if>
+            <if test="operationName != null">
+                AND `operationName`=#{operationName,jdbcType=VARCHAR}
+            </if>
+            <if test="operationAlias != null">
+                AND `operationAlias`=#{operationAlias,jdbcType=VARCHAR}
+            </if>
+            <if test="extraWords != null">
+                AND `extraWords`=#{extraWords,jdbcType=VARCHAR}
+            </if>
+            <if test="comment != null">
+                AND `comment`=#{comment,jdbcType=VARCHAR}
+            </if>
+            <if test="operationTime != null">
+                AND `operationTime`=#{operationTime,jdbcType=VARCHAR}
+            </if>
+        </where>
+        ORDER BY `operationTime`
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id" parameterType="OperationModel">
+        INSERT INTO operation (`appName`,`objectName`,`objectId`,`operator`,`operationName`,
+        `operationAlias`,`extraWords`,`comment`,`operationTime`)
+        VALUES
+        (#{appName},#{objectName},#{objectId},#{operator},#{operationName},
+        #{operationAlias},#{extraWords},#{comment},#{operationTime})
+    </insert>
+</mapper>
